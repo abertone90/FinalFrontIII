@@ -1,8 +1,6 @@
-export function Home(user, setUser){
+export function Home(){
 
-    const handleLogout = () =>{
-        setUser([])
-    }
+  
     return(
         <div>
             <h1>Home</h1>
