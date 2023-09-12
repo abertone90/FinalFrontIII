@@ -1,27 +1,33 @@
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import { Formulario } from './componentes/Formulario'
 import { Home } from './componentes/Home'
+import Contact from './routes/Contact'
 
 
 function App() {
-  return(
+  return (
     <><header>
+      <a href='/'>Home</a>
+      <a href='/contact'>Contact</a>
 
-      <a href='Home'>Home</a>
-      <a href='Formulario'>Formulario</a>
+
 
     </header>
 
-    <Route>
+      <Routes>
 
-        <Route path='/' element={<Home />} />
-        <Route path='/Formulario' element={<Formulario />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/favs" element={<Favs />} />
+        <Route path="/dentist/:id" element={<Detail />} /> */}
 
-      </Route></>
 
 
-  
+      </Routes></>
+
+
+
   )
 }
 

@@ -1,45 +1,48 @@
+
 import "./Formulario.css"
 import { useState } from "react"
 
 
 // eslint-disable-next-line react/prop-types
-export function Formulario({setUser}){
-    const[nombre, setNombre] = useState("")
-    const[pasword, setPasword] = useState("")
-    const[error, setError] = useState(false)
+export function Formulario({ setUser }) {
+    const [nombre, setNombre] = useState("")
+    const [email, setEmail] = useState("")
+    const [error, setError] = useState(false)
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault()
-        if(nombre === "" || pasword === ""){
+        if (nombre === ""|| nombre.length <5 || email === ""|| !email.includes("@")) {
             setError(true)
-            return    
-    }
+            return
+        }
         setError(false)
         setUser([nombre])
-      
-        
-    
     }
-    
-    return(
+
+    return (
         <section><h1>Login</h1>
-        <form className="formulario"
-          onSubmit={handleSubmit}
-          >
-          
-            
-            <input type="text" 
-            value={nombre}
-            onChange={e => setNombre(e.target.value)}/>
-            <input type="pasword"
-            value={pasword}
-            onChange={e => setPasword(e.target.value)}
-            />
-            <button>Iniciar Sesión</button>
-        </form>
-        {error && <p>Por favor llene todos los campos</p>}
-        
+            <form className="formulario"
+
+
+                onSubmit={handleSubmit}
+            >
+
+
+                <input type="text"
+                    value={nombre}
+                    onChange={e => setNombre(e.target.value)} 
+                    placeholder="Nombre"/>
+                    
+                <input type="text"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder="Correo"
+                />
+                <button>Guardar Contacto</button>
+            </form>
+            {error && <p>Por favor llene todos los campos</p>}
+
         </section>
-    ) 
+    )
 
 }
